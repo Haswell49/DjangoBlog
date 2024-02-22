@@ -13,3 +13,8 @@ class Post(models.Model):
     text = models.TextField()
     edit_date = models.DateTimeField(auto_now=True)
     creation_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        local_date = self.creation_date.astimezone()
+        formatted_date = local_date.strftime("%Y-%m-%d (%H:%M)")
+        return f"{formatted_date} ({self.id})"
