@@ -9,10 +9,11 @@ def user_directory_path(instance, filename: str):
 
 class Post(models.Model):
     # BASE_DIR/media/uploads/
-    photo = models.ImageField(upload_to=user_directory_path, default="")
+    title = models.CharField(default="", max_length=30)
     text = models.TextField()
     edit_date = models.DateTimeField(auto_now=True)
     creation_date = models.DateTimeField(auto_now_add=True)
+    photo = models.ImageField(upload_to=user_directory_path, default="")
 
     def __str__(self):
         local_date = self.creation_date.astimezone()
