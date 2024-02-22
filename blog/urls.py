@@ -25,6 +25,6 @@ from blog import views
 
 urlpatterns = [
     # <адрес_сайта>/blog/
-    path('', views.index),
-    path('post/<int:post_id>', views.view_post)
+    path('', views.index, name="index"),
+    path('post/<int:post_id>', views.view_post, name="view_post")
 ]
