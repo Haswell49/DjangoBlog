@@ -22,9 +22,10 @@ from django.urls import path, include
 from core import settings
 from core import views
 
+app_name = "core"
 
 urlpatterns = [
     path('', views.blog_redirect),
     path('admin/', admin.site.urls),
-    path('blog/', include('blog.urls'))
+    path('blog/', include('blog.urls', namespace='blog'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -23,18 +23,34 @@
         <div class="tm-site-header">
             <div class="mb-3 mx-auto tm-site-logo"><i
                     class="fas fa-times fa-2x"></i></div>
-            <h1 class="text-center">Xtra Blog</h1>
+            <h1 class="text-center">Haswell's Blog</h1>
+            {% if request.user.username %}
+                <p class="text-center" style="color:white">Welcome, {{ request.user.username }}!</p>
+            {% endif %}
         </div>
         <nav class="tm-nav" id="tm-nav">
             <ul>
+                {% if request.user.is_anonymous %}
+                    <li class="tm-nav-item"><a href="{% url 'blog:auth' %}"
+                                               class="tm-nav-link">
+                        <i class="fas fa-users"></i>
+                        Login
+                    </a></li>
+                {% else %}
+                    <li class="tm-nav-item"><a href="{% url 'blog:logout' %}"
+                                               class="tm-nav-link">
+                        <i class="fas fa-users"></i>
+                        Log out
+                    </a></li>
+                {% endif %}
                 {% if request.path == '/blog/' %}
-                <li class="tm-nav-item active"><a href="{% url 'index' %}"
+                <li class="tm-nav-item active"><a href="{% url 'blog:index' %}"
                                                   class="tm-nav-link">
                     <i class="fas fa-home"></i>
                     Blog Home
                 </a></li>
                 {% else %}
-                    <li class="tm-nav-item"><a href="{% url 'index' %}"
+                    <li class="tm-nav-item"><a href="{% url 'blog:index' %}"
                                                   class="tm-nav-link">
                     <i class="fas fa-home"></i>
                     Blog Home

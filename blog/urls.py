@@ -22,9 +22,13 @@ from django.urls import path
 # <адрес_сайта>/blog/*
 from blog import views
 
+app_name = "blog"
 
 urlpatterns = [
     # <адрес_сайта>/blog/
     path('', views.index, name="index"),
+    # <адрес_сайта>/blog/auth/
+    path('auth/', views.auth_page, name="auth"),
+    path('deauth/', views.deauth, name="logout"),
     path('post/<int:post_id>', views.view_post, name="view_post")
 ]
