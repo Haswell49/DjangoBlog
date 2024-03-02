@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+{#auth.html#}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+</head>
+<body>
+    <h1>Register</h1>
+    <form method="post" action="{% url 'blog:register' %}">
+        {% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username"><br>
+
+        <label for="first_name">First Name:</label>
+        <input type="text" name="first_name" id="first_name"><br>
+
+        <label for="last_name">Last Name:</label>
+        <input type="text" name="last_name" id="last_name"><br>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email"><br>
+
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password"><br>
+
+        <label for="password_confirm">Confirm Password:</label>
+        <input type="password" name="password_confirm" id="password_confirm"><br>
+
+        <input type="submit" id="submit_button" disabled>
+        <script type="text/javascript" src="{% static 'js/password_confirm.js' %}"></script>
+    </form>
+</body>
+</html>

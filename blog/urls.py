@@ -28,7 +28,12 @@ urlpatterns = [
     # <адрес_сайта>/blog/
     path('', views.index, name="index"),
     # <адрес_сайта>/blog/auth/
-    path('auth/', views.auth_page, name="auth"),
+    path('auth_page/', views.auth_page, name="auth"),
+    path('auth/', views.auth, name="authorize"),
     path('deauth/', views.deauth, name="logout"),
+
+    path('register_page/', views.register_page, name="register_page"),
+    path('register/', views.register, name="register"),
+
     path('post/<int:post_id>', views.view_post, name="view_post")
 ]

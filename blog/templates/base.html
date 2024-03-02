@@ -43,6 +43,15 @@
                         Log out
                     </a></li>
                 {% endif %}
+
+                {% if request.user.is_anonymous %}
+                    <li class="tm-nav-item"><a href="{% url 'blog:register_page' %}"
+                                               class="tm-nav-link">
+                        <i class="fas fa-users"></i>
+                        Sign in
+                    </a></li>
+                {% endif %}
+
                 {% if request.path == '/blog/' %}
                 <li class="tm-nav-item active"><a href="{% url 'blog:index' %}"
                                                   class="tm-nav-link">
